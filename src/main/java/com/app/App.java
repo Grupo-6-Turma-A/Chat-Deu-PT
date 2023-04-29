@@ -343,4 +343,8 @@ public class App {
         System.out.println("Pressione qualquer tecla para continuar...");
         scanner.nextLine();
     }
+
+    public static void printOption(int option, String text) {
+        System.out.println("(" + option + ") " + text);
+    }
 }
