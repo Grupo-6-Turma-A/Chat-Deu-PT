@@ -13,6 +13,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class App {
+    static Scanner scanner = new Scanner(System.in);
 
     static Boolean[] array1 = { true, true, true, false,
             true, true, true, true,
@@ -279,5 +280,67 @@ public class App {
             System.out.println("file not found");
             e.printStackTrace();
         }
+    }
+
+    // This sections if for helper methods
+
+    /**
+     * this method is used to clear the terminal
+     */
+    public static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    /**
+     * this method is used to read a string from the user
+     * 
+     * @param prompt the message that will be shown to the user
+     * @return the string that the user typed
+     */
+
+    public static int readInt(String prompt, int userChoices) {
+        int input;
+        do {
+            System.out.println(prompt);
+            try {
+                input = Integer.parseInt(scanner.next());
+            } catch (Exception e) {
+                input = -1;
+                System.out.println("Entrada inválida! Informe um número inteiro.");
+            }
+        } while (input < 1 || input > userChoices);
+        return input;
+    }
+
+    /**
+     * this method is used to print a separator
+     * 
+     * @param n the number of times the separator will be printed
+     */
+    public static void printSeparator(int n) {
+        for (int i = 0; i < n; i++) {
+            System.out.print("-");
+        }
+        System.out.println();
+    }
+
+    /**
+     * this method is used to print a heading
+     * 
+     * @param title the title of the heading
+     */
+    public static void printHeading(String title) {
+        printSeparator(50);
+        System.out.println(title);
+        printSeparator(50);
+    }
+
+    /**
+     * this method is used await for the user to press any key
+     */
+    public static void anyKeyToContinue() {
+        System.out.println("Pressione qualquer tecla para continuar...");
+        scanner.nextLine();
     }
 }
