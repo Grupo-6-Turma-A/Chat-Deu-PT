@@ -31,6 +31,20 @@ public class App {
             true
     };
 
+    static int reverseTest1 = 35231;
+    static int reverseTest2 = 23582357;
+
+    static String binaryTest1 = "45385593107843568";
+    static String binaryTest2 = "509321967506747";
+    static String binaryTest3 = "366058562030849490134388085";
+
+    static int[] sumTest1 = { 1, 2, 3, 4, 5 };
+    static int[] sumTest2 = { 1, -2, 3, 4, 5 };
+    static int[] sumTest3 = {};
+
+    static String stringToArrayTest1 = "Robin Singh";
+    static String stringToArrayTest2 = "I love arrays they are my favorite";
+
     static StringBuilder sb = new StringBuilder();
     static Scanner sc = new Scanner(System.in);
     static PrintStream show = System.out;
@@ -47,7 +61,17 @@ public class App {
     // game body starts here
 
     public static void stageOne() {
-        show.println("you're on first stage");
+        printHeading("STAGE ONE");
+        show.println(
+                "you're on first stage, you need to write a code to pass this stage go to the file Counter.java and write the code to pass this stage");
+        anyKeyToContinue();
+        boolean result = testPlayerCode();
+        show.println(result ? "you passed the stage" : "you failed the stage");
+        if (result) {
+            stageTwo();
+        } else {
+            stageOne();
+        }
     }
 
     public static void stageTwo() {
@@ -155,7 +179,7 @@ public class App {
         char player_choice = sc.next().toUpperCase().charAt(0);
 
         if (player_choice == 'M') {
-            gameMenu();
+            stageOne();
         } else if (player_choice == 'E') {
             exit();
         }
@@ -224,7 +248,7 @@ public class App {
         }
     }
 
-    public static String testPlayerCode() {
+    public static boolean testPlayerCode() {
         try {
             OutputStream os = new ByteArrayOutputStream();
             PrintStream ps = new PrintStream(os);
@@ -233,18 +257,14 @@ public class App {
 
             // Compile the code
             JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-            int compilationResult = compiler.run(null, null, null, "src/main/java/com/test/Counter.java");
+            int compilationResult = compiler.run(null, null, null, "src/main/java/com/app/Counter.java");
             if (compilationResult != 0) {
                 // Compilation failed
-                System.setOut(old);
-                ps.flush();
-                String compilationErrorMessage = "Compilation failed with error code1: " + compilationResult;
-                System.out.println(compilationErrorMessage);
-                return compilationErrorMessage;
+                return false;
             }
             // Load the Counter class
             ClassLoader classLoader = App.class.getClassLoader();
-            Class<?> cls = classLoader.loadClass("com.test.Counter");
+            Class<?> cls = classLoader.loadClass("com.app.Counter");
             Object obj = cls.getDeclaredConstructor().newInstance();
             Method method = cls.getDeclaredMethod("countSheeps", Boolean[].class);
 
@@ -260,11 +280,9 @@ public class App {
             ps.flush(); // Flush the PrintStream to ensure all captured output is written to the
                         // OutputStream
             System.out.println(os.toString());
-            return test1 && test2 ? "Test passed" : "Test failed";
+            return test1 && test2;
         } catch (Exception e) {
-            e.printStackTrace();
-            String error = e.getMessage();
-            return error;
+            return false;
         }
     }
 
