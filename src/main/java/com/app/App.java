@@ -66,7 +66,7 @@ public class App {
 
     }
 
-    // menu config
+    // menu configuration
 
     public static void gameMenu() {
         sb.append("\n| - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - |");
