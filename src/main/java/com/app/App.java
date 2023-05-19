@@ -66,6 +66,8 @@ public class App {
     }
 
     // menu config
+     
+
 
     public static void gameMenu() {
         sb.append("\n| - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - |");
@@ -112,9 +114,7 @@ public class App {
         show.println(sb.toString());
         char player_choice = sc.next().toUpperCase().charAt(0);
 
-        if (player_choice == 'M') {
-            gameMenu();
-        } else if (player_choice == 'E') {
+        if (player_choice == 'E') {
             exit();
         }
     }
@@ -154,7 +154,7 @@ public class App {
         char player_choice = sc.next().toUpperCase().charAt(0);
 
         if (player_choice == 'M') {
-            gameMenu();
+            tutorial();
         } else if (player_choice == 'E') {
             exit();
         }
