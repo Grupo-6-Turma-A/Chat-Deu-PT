@@ -14,21 +14,6 @@ import java.io.*;
 
 import java.util.Scanner;
 
-interface MethodToInvoke {
-    boolean execute(Object obj, Method method);
-}
-
-class MyMethodToInvoke implements MethodToInvoke {
-    @Override
-    public boolean execute(Object obj, Method method) {
-        try {
-            return (boolean) method.invoke(obj, method);
-        } catch (Exception e) {
-            return false;
-        }
-    }
-}
-
 public class App {
     static Scanner scanner = new Scanner(System.in);
 
@@ -86,8 +71,8 @@ public class App {
         show.println(
                 "you're on first stage, you need to write a code to pass this stage go to the file Counter.java and write the code to pass this stage");
         anyKeyToContinue();
-        MethodToInvoke methodToInvoke = new MyMethodToInvoke();
-        boolean result = testPlayerCode(counterChallenge, methodToInvoke);
+
+        boolean result = testPlayerCode(counterChallenge);
         show.println(result ? "you passed the stage" : "you failed the stage");
         if (result) {
             stageTwo();
@@ -271,7 +256,7 @@ public class App {
     }
 
     // Pass the method to be tested and the object to invoke the method on
-    public static boolean testPlayerCode(String[] challenge, MethodToInvoke methodToInvoke) {
+    public static boolean testPlayerCode(String[] challenge) {
         Class<?>[] paramTypes = new Class<?>[] {
                 Boolean[].class,
                 boolean.class,
@@ -299,8 +284,26 @@ public class App {
             Object obj = cls.getDeclaredConstructor().newInstance();
             Method method = cls.getDeclaredMethod(challenge[2], paramTypes[Integer.parseInt(challenge[3])]);
 
+            switch (challenge[2]) {
+                case "countSheeps":
+                    return counterTest(method, obj);
+                case "fakeBinary":
+                    return fakeBinaryTest(method, obj);
+                case "setAlarm":
+                    return alarmTest(method, obj);
+                case "numToString":
+                    return numTest(method, obj);
+                case "sum":
+                    return positiveTest(method, obj);
+                case "reverseNumber":
+                    return reverseTest(method, obj);
+                case "stringToArray":
+                    return stringToArrayTest(method, obj);
+                default:
+                    return false;
+            }
+
             // Invoke the method
-            return methodToInvoke.execute(obj, method);
         } catch (Exception e) {
             return false;
         }
