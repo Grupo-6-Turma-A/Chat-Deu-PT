@@ -4,13 +4,30 @@ import javazoom.jl.player.Player;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
 
 import java.io.*;
 
 import java.util.Scanner;
+
+interface MethodToInvoke {
+    boolean execute(Object obj, Method method);
+}
+
+class MyMethodToInvoke implements MethodToInvoke {
+    @Override
+    public boolean execute(Object obj, Method method) {
+        try {
+            return (boolean) method.invoke(obj, method);
+        } catch (Exception e) {
+            return false;
+        }
+    }
+}
 
 public class App {
     static Scanner scanner = new Scanner(System.in);
@@ -31,8 +48,15 @@ public class App {
             true
     };
 
-    static int reverseTest1 = 35231;
-    static int reverseTest2 = 23582357;
+    static String[] counterChallenge = { "src/main/java/com/app/Counter.java", "com.app.Counter", "countSheeps", "0" };
+    static String[] binaryChallgenge = { "src/main/java/com/app/Binary.java", "com.app.Binary", "fakeBinary", "4" };
+    static String[] alarmChallgenge = { "src/main/java/com/app/Alarm.java", "com.app.Alarm", "setAlarm", "1" };
+    static String[] numChallgenge = { "src/main/java/com/app/Num.java", "com.app.Num", "numToString", "4" };
+    static String[] positiveChallgenge = { "src/main/java/com/app/Positive.java", "com.app.Positive", "sum", "2" };
+    static String[] reverseChallgenge = { "src/main/java/com/app/Reverse.java", "com.app.Reverse", "reverseNumber",
+            "3" };
+    static String[] stringToArrayChallgenge = { "src/main/java/com/app/StringToArray.java", "com.app.StringToArray",
+            "stringToArray", "5" };
 
     static String binaryTest1 = "45385593107843568";
     static String binaryTest2 = "509321967506747";
@@ -41,9 +65,6 @@ public class App {
     static int[] sumTest1 = { 1, 2, 3, 4, 5 };
     static int[] sumTest2 = { 1, -2, 3, 4, 5 };
     static int[] sumTest3 = {};
-
-    static String stringToArrayTest1 = "Robin Singh";
-    static String stringToArrayTest2 = "I love arrays they are my favorite";
 
     static StringBuilder sb = new StringBuilder();
     static Scanner sc = new Scanner(System.in);
@@ -65,7 +86,8 @@ public class App {
         show.println(
                 "you're on first stage, you need to write a code to pass this stage go to the file Counter.java and write the code to pass this stage");
         anyKeyToContinue();
-        boolean result = testPlayerCode();
+        MethodToInvoke methodToInvoke = new MyMethodToInvoke();
+        boolean result = testPlayerCode(counterChallenge, methodToInvoke);
         show.println(result ? "you passed the stage" : "you failed the stage");
         if (result) {
             stageTwo();
@@ -248,42 +270,116 @@ public class App {
         }
     }
 
-    public static boolean testPlayerCode() {
+    // Pass the method to be tested and the object to invoke the method on
+    public static boolean testPlayerCode(String[] challenge, MethodToInvoke methodToInvoke) {
+        Class<?>[] paramTypes = new Class<?>[] {
+                Boolean[].class,
+                boolean.class,
+                int.class,
+                int[].class,
+                String.class,
+                String[].class
+        };
+
         try {
             OutputStream os = new ByteArrayOutputStream();
             PrintStream ps = new PrintStream(os);
-            PrintStream old = System.out;
             System.setOut(ps);
 
             // Compile the code
             JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-            int compilationResult = compiler.run(null, null, null, "src/main/java/com/app/Counter.java");
+            int compilationResult = compiler.run(null, null, null, challenge[0]);
             if (compilationResult != 0) {
                 // Compilation failed
                 return false;
             }
             // Load the Counter class
             ClassLoader classLoader = App.class.getClassLoader();
-            Class<?> cls = classLoader.loadClass("com.app.Counter");
+            Class<?> cls = classLoader.loadClass(challenge[1]);
             Object obj = cls.getDeclaredConstructor().newInstance();
-            Method method = cls.getDeclaredMethod("countSheeps", Boolean[].class);
+            Method method = cls.getDeclaredMethod(challenge[2], paramTypes[Integer.parseInt(challenge[3])]);
 
             // Invoke the method
-            method.invoke(obj, (Object) array1);
-            String result = Integer.toString((int) method.invoke(obj, (Object) array1));
-            String result2 = Integer.toString((int) method.invoke(obj, (Object) array2));
-
-            boolean test1 = result.contains("18");
-            boolean test2 = result2.contains("17");
-
-            System.setOut(old);
-            ps.flush(); // Flush the PrintStream to ensure all captured output is written to the
-                        // OutputStream
-            System.out.println(os.toString());
-            return test1 && test2;
+            return methodToInvoke.execute(obj, method);
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public static boolean counterTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        String result = Integer.toString((int) metodo.invoke(obj, (Object) array1));
+        String result2 = Integer.toString((int) metodo.invoke(obj, (Object) array2));
+        boolean test1 = result.contains("18");
+        boolean test2 = result2.contains("17");
+        return test1 && test2;
+    }
+
+    public static boolean alarmTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, true, true).equals(false);
+        boolean test2 = metodo.invoke(obj, false, true).equals(false);
+        boolean test3 = metodo.invoke(obj, false, false).equals(false);
+        boolean test4 = metodo.invoke(obj, true, false).equals(true);
+
+        return test1 && test2 && test3 && test4;
+    }
+
+    public static boolean fakeBinaryTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, binaryTest1).equals("01011110001100111");
+        boolean test2 = metodo.invoke(obj, binaryTest2).equals("101000111101101");
+        boolean test3 = metodo.invoke(obj, binaryTest3).equals("011011110000101010000011011");
+
+        return test1 && test2 && test3;
+    }
+
+    public static boolean numTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        String test1 = ((String) metodo.invoke(obj, 9)).toLowerCase();
+        boolean test1_1 = test1.contains("nove");
+        String test2 = ((String) metodo.invoke(obj, 8)).toLowerCase();
+        boolean test2_1 = test2.contains("oito");
+        String test3 = ((String) metodo.invoke(obj, 7)).toLowerCase();
+        boolean test3_1 = test3.contains("sete");
+        String test4 = ((String) metodo.invoke(obj, 6)).toLowerCase();
+        boolean test4_1 = test4.contains("seis");
+        String test5 = ((String) metodo.invoke(obj, 5)).toLowerCase();
+        boolean test5_1 = test5.contains("cinco");
+        String test6 = ((String) metodo.invoke(obj, 4)).toLowerCase();
+        boolean test6_1 = test6.contains("quatro");
+        String test7 = ((String) metodo.invoke(obj, 3)).toLowerCase();
+        boolean test7_1 = test7.contains("tres");
+        String test8 = ((String) metodo.invoke(obj, 2)).toLowerCase();
+        boolean test8_1 = test8.contains("dois");
+        String test9 = ((String) metodo.invoke(obj, 1)).toLowerCase();
+        boolean test9_1 = test9.contains("um");
+
+        return test1_1 && test2_1 && test3_1 && test4_1 && test5_1 && test6_1 && test7_1 && test8_1 && test9_1;
+    }
+
+    public static boolean positiveTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, sumTest1).equals(15);
+        boolean test2 = metodo.invoke(obj, sumTest2).equals(13);
+        boolean test3 = metodo.invoke(obj, sumTest3).equals(0);
+        return test1 && test2 && test3;
+    }
+
+    public static boolean reverseTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, 123).equals(new int[] { 3, 2, 1 });
+        boolean test2 = metodo.invoke(obj, 1234).equals(new int[] { 4, 3, 2, 1 });
+        boolean test3 = metodo.invoke(obj, 12345).equals(new int[] { 5, 4, 3, 2, 1 });
+        return test1 && test2 && test3;
+    }
+
+    public static boolean stringToArrayTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, "Robin Singh").equals(new String[] { "Robin", "Singh" });
+        boolean test2 = metodo.invoke(obj, "I love arrays they are my favorite")
+                .equals(new String[] { "I", "love", "arrays", "they", "are", "my", "favorite" });
+        return test1 && test2;
     }
 
     public static void soundtrack(String song) {
@@ -341,6 +437,7 @@ public class App {
             System.out.print("-");
         }
         System.out.println();
+        // fodase
     }
 
     /**
