@@ -43,38 +43,42 @@ public class App {
         gameMenu();
     }
 
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
     // game body starts here
 
     public static void stageOne() {
-        show.println("you're on first stage");
+        show.println("Você está no primeiro estágio!");
     }
 
     public static void stageTwo() {
-        show.println("you're on second stage");
+        show.println("Você está no segundo estágio!");
     }
 
     public static void stageTree() {
-
+        show.println("Você está no terceiro estágio!");
     }
 
     public static void stageFour() {
-
+        show.println("Você está no quarto estágio!");
     }
 
     public static void stageFive() {
-
+        show.println("Você está no quinto estágio!");
     }
+
+    // game body ends here
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
     // menu configuration
 
     public static void gameMenu() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n| - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - -   WELCOME TO CHATDEUPT - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - BEM VINDO AO CHATDEUPT - - - - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - |");
-        sb.append("\n| -    |1|  NEW GAME ~ ~ ~ |2| LOAD GAME ~ ~ ~  |3| TUTORIAL   - |");
+        sb.append("\n| - |1|  NOVO JOGO ~ ~ ~ |2| CARREGAR JOGO ~ ~ ~  |3| TUTORIAL - |");
         sb.append("\n| - - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - |");
-        sb.append("\n| -   ~ ~ ~ ~  |4| CREDITS  ~ ~ ~ ~ ~  |5| EXIT GAME ~ ~ ~ ~   - |");
+        sb.append("\n| -    ~ ~ ~ ~ |4| CRÉDITOS  ~ ~     ~ ~  |5| SAIR ~ ~ ~ ~     - |");
         sb.append("\n| - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - |");
         show.println(sb.toString());
         
@@ -84,11 +88,11 @@ public class App {
     public static void tutorial() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
-        sb.append("\n| - -  - - - - - - - -   TUTORIAL SCREEN   - - - - - - - - - - - |");
+        sb.append("\n| - -  - - - - - - - -   TELA DE TUTORIAL  - - - - - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - |");
-        sb.append("\n| - - - - - - - -     PRESS M TO RETURN MENU   - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - -        OR E TO EXIT        - - - - - - - - - |");
+        sb.append("\n| - - - - - -  Pressione [M] para retornar ao MENU   - - - - - - |");
+        sb.append("\n| - - - - - - - -    OU [E] para SAIR do jogo      - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
         show.println(sb.toString());
@@ -99,10 +103,10 @@ public class App {
     public static void credits() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - -   CREDITS SCREEN   - - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - -  TELA DE CRÉDITOS  - - - - - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - -     PRESS M TO RETURN MENU   - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - -        OR E TO EXIT        - - - - - - - - - |");
+        sb.append("\n| - - - - - -  Pressione [M] para retornar ao MENU   - - - - - - |");
+        sb.append("\n| - - - - - - - -    OU [E] para SAIR do jogo      - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
         show.println(sb.toString());
@@ -113,7 +117,7 @@ public class App {
     public static void exit() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
-        sb.append("\n| - -  - - - -             GAME FINISHED       - - - - - - - - - |");
+        sb.append("\n| - -  - - - -            JOGO FINALIZADO      - - - - - - - - - |");
         sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
         show.println(sb.toString());
     }
@@ -162,7 +166,7 @@ public class App {
     }
 
     public static void newGame() {
-        show.println("enter your nickname");
+        show.println("Qual será seu nome? ");
         player_name = sc.next();
         player_stage = "first-stage";
         saveGame(player_name, player_stage);
@@ -194,7 +198,7 @@ public class App {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            System.out.println("Saved!");
+            System.out.println("Jogo salvo!");
         }
     }
 
@@ -229,7 +233,7 @@ public class App {
             show.println("load complete");
         } else if (stage.equals("second-stage")) {
             stageTwo();
-            show.println("load complete");
+            show.println("Carregamento concluído!");
         }
     }
 
