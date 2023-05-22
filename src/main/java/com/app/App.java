@@ -31,7 +31,6 @@ public class App {
             true
     };
 
-    static StringBuilder sb = new StringBuilder();
     static Scanner sc = new Scanner(System.in);
     static PrintStream show = System.out;
 
@@ -69,6 +68,7 @@ public class App {
     // menu configuration
 
     public static void gameMenu() {
+        StringBuilder sb = new StringBuilder();
         sb.append("\n| - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - |");
         sb.append("\n| - - - - - - - - - -   WELCOME TO CHATDEUPT - - - - - - - - - - |");
         sb.append("\n| - - - - - - - - - - - - - - - - - - - - - - - -  - - - - - - - |");
@@ -77,9 +77,52 @@ public class App {
         sb.append("\n| -   ~ ~ ~ ~  |4| CREDITS  ~ ~ ~ ~ ~  |5| EXIT GAME ~ ~ ~ ~   - |");
         sb.append("\n| - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - |");
         show.println(sb.toString());
-        int player_option = sc.nextInt();
+        
+        optionDecision();
+    }
 
-        switch (player_option) {
+    public static void tutorial() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
+        sb.append("\n| - -  - - - - - - - -   TUTORIAL SCREEN   - - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - |");
+        sb.append("\n| - - - - - - - -     PRESS M TO RETURN MENU   - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - -        OR E TO EXIT        - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
+        show.println(sb.toString());
+
+        reviveMenu();
+    }
+
+    public static void credits() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - -   CREDITS SCREEN   - - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - -     PRESS M TO RETURN MENU   - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - -        OR E TO EXIT        - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |");
+        sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
+        show.println(sb.toString());
+
+        reviveMenu();
+    }
+
+    public static void exit() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
+        sb.append("\n| - -  - - - -             GAME FINISHED       - - - - - - - - - |");
+        sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
+        show.println(sb.toString());
+    }
+
+    public static void optionDecision() {
+        show.println("Digite o número correpondente à opção desejada: ");
+        int option = sc.nextInt();
+
+        switch (option) {
             case 1:
                 newGame();
                 break;
@@ -96,53 +139,26 @@ public class App {
                 exit();
                 break;
             default:
-                show.println("invalid option");
+                show.println("Opção inválida! Tente novamente.");
+                gameMenu();
                 break;
         }
     }
 
-    public static void tutorial() {
-        sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
-        sb.append("\n| - -  - - - - - - - -   TUTORIAL SCREEN   - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  - |");
-        sb.append("\n| - - - - - - - -     PRESS M TO RETURN MENU   - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - -        OR E TO EXIT        - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
-        show.println(sb.toString());
-        char player_choice = sc.next().toUpperCase().charAt(0);
+    public static void reviveMenu() {
+        show.println("Digite [M] para retornar ao menu ou [E] para sair do jogo.");
+        char option = sc.next().toLowerCase().charAt(0);
 
-        if (player_choice == 'M') {
-            gameMenu();
-        } else if (player_choice == 'E') {
-            exit();
+        switch(option) {
+            case 'm':
+                gameMenu();
+                break;
+            case 'e':
+                exit();
+                break;
+            default:
+                System.out.println("Opção inválida!");
         }
-    }
-
-    public static void credits() {
-        sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - -   CREDITS SCREEN   - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - -     PRESS M TO RETURN MENU   - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - -        OR E TO EXIT        - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - |");
-        sb.append("\n| - - - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - |");
-        show.println(sb.toString());
-        char player_choice = sc.next().toUpperCase().charAt(0);
-
-        if (player_choice == 'M') {
-            gameMenu();
-        } else if (player_choice == 'E') {
-            exit();
-        }
-    }
-
-    public static void exit() {
-        sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
-        sb.append("\n| - -  - - - -             GAME FINISHED       - - - - - - - - - |");
-        sb.append("\n| - -  - - - - - - - - - - - - - - - - - - - - - - - - - - - - - |");
-        show.println(sb.toString());
     }
 
     public static void newGame() {
@@ -151,14 +167,7 @@ public class App {
         player_stage = "first-stage";
         saveGame(player_name, player_stage);
 
-        show.println("E or M");
-        char player_choice = sc.next().toUpperCase().charAt(0);
-
-        if (player_choice == 'M') {
-            gameMenu();
-        } else if (player_choice == 'E') {
-            exit();
-        }
+        reviveMenu();
     }
 
     /**
