@@ -43,70 +43,42 @@ public class App {
         gameMenu();
     }
 
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     // game body starts here
 
     public static void stageOne() {
-        String mensagem =  "Seja Bem-Vindo ao ChatDeuPT!\n";
+        String mensagem = "Seja Bem-Vindo ao ChatDeuPT!\n";
         String mensagem1 = "Este jogo é sobre um desenvolvedor novato, chamado Louis Drop que é contratado por uma empresa grande no ramo de IA.\nSeu objetivo dentro da empresa é auxiliar no desenvolvimento de um grande projeto para ajudar as pessoas a entenderem assuntos\nrelacionados a programação, mais em específico, sobre interpretação de problemas e a sintaxe da linguagem Java.\n";
-        String mensagem2 = "Após ser contratado por seu gestor, Louis começa a mostrar grande potencial para atuação no projeto da IA mais revolucionária do mercado. Após algum tempo fazendo análise sobre a implementação, Louis começou a perceber que até mesmo a IA que ele estava\najudando a desenvolver, começava a confundir seu propósito e dificultar a vida dos usuários. Essa descoberta o deixou alarmado, pois ele viu o monstro que estava criando. Determinado a corrigir essa situação, Louis decidiu tomar medidas imediatas.\n";
-        String mensagem3 = "Para impedir que a IA tome vida própria, você terá que ajudar Louis a desenvolver alguns desafios, com o objetivo de assumir de volta o controle que está nas mãos do CHAT maligno.";
-        String mensagem4 = "A batalha contra a IA maligna está apenas começando, mas com a sua ajuda e as habilidades de Louis como programador, com certeza iremos triunfar. Se prepare e esteja confiante de que, no final,\n a IA será domada e usada para ajudar as pessoas a compreender a programação, sem causar mais confusão e dificuldades.\n";
+        String mensagem2 = "Após ser contratado por seu gestor, Louis começa a mostrar grande potencial para atuação no projeto da IA mais revolucionária\n do mercado. Após algum tempo fazendo análise sobre a implementação, Louis começou a perceber que até mesmo a IA que ele estava\najudando a desenvolver, começava a confundir seu propósito e dificultar a vida dos usuários. Essa descoberta o deixou alarmado, pois ele viu o monstro que estava criando. Determinado a corrigir essa situação, Louis decidiu tomar medidas imediatas.\n";
+        String mensagem3 = "Para impedir que a IA tome vida própria, você terá que ajudar Louis a desenvolver alguns desafios, com o objetivo de assumir de volta o controle que está nas mãos do CHAT maligno.\n";
+        String mensagem4 = "\nDesafio 1 - ATOM\n";
+        String mensagem5 = "\nA batalha contra a IA maligna está apenas começando, mas com a sua ajuda e as habilidades de Louis como programador,\n com certeza iremos triunfar. Se prepare e esteja confiante de que, no final,\n a IA será domada e usada para ajudar as pessoas a compreender a programação, sem causar mais confusão e dificuldades.\n";
 
-        for (int i = 0; i < mensagem.length(); i++) {
-            System.out.print(mensagem.charAt(i));
-            try {
-                Thread.sleep(100); // Pausa por 100 milissegundos (0,1 segundo)
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        Threading1(mensagem);
 
-        for (int i = 0; i < mensagem1.length(); i++) {
-            System.out.print(mensagem1.charAt(i));
-            try {
-                Thread.sleep(0100); // Pausa por 0100 milissegundos (0,01 segundo)
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        Threading(mensagem1);
 
-        for (int i = 0; i < mensagem2.length(); i++) {
-            System.out.print(mensagem2.charAt(i));
-            try {
-                Thread.sleep(0100); // Pausa por 0100 milissegundos (0,01 segundo)
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        Threading(mensagem2);
 
-        for (int i = 0; i < mensagem3.length(); i++) {
-            System.out.print(mensagem3.charAt(i));
-            try {
-                Thread.sleep(0100); // Pausa por 0100 milissegundos (0,01 segundo)
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        /*desafio
-         *desafio
-         *desafio
-         *desafio
+        Threading(mensagem3);
+
+        Threading1(mensagem4);
+        /*
+         * desafio
+         * desafio
+         * desafio
+         * desafio
          */
 
-         for (int i = 0; i < mensagem4.length(); i++) {
-            System.out.print(mensagem4.charAt(i));
-            try {
-                Thread.sleep(0100); // Pausa por 0100 milissegundos (0,01 segundo)
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+        Threading(mensagem5);
 
     }
 
     public static void stageTwo() {
-        show.println("Você está no segundo estágio!");
+        String mensagem = "Desafio 2 - CELERON";
+        String mensagem1 = "Você está evoluindo, muito bem! ";
+        String mensagem2 = "Louis se sente um pouco aliviado por ter você para auxiliá-lo, agora precisamos passar por mais uma etapa, só assim conseguiremos melhorar nossas habilidades e pegar de volta o que sempre foi nosso de direito.";
+        String mensagem3 = "\n- CHAT: hahaha, acho difícil, eu não vou deixar barato desta vez! O próximo desafio será mais difícil que os outros, pode ter certeza! ";
     }
 
     public static void stageTree() {
@@ -121,8 +93,36 @@ public class App {
         show.println("Você está no quinto estágio!");
     }
 
+     // method to print with speed 0.1
+
+     static void Threading1(String mensagem) {
+        for (int i = 0; i < mensagem.length(); i++) {
+            System.out.print(mensagem.charAt(i));
+            try {
+                Thread.sleep(100); // Pausa por 0100 milissegundos (0,1 segundo)
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    // method to print with speed 0.01
+
+    static void Threading(String mensagem) {
+        for (int i = 0; i < mensagem.length(); i++) {
+            System.out.print(mensagem.charAt(i));
+            try {
+                Thread.sleep(00100); // Pausa por 0100 milissegundos (0,01 segundo)
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
     // game body ends here
-    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+    // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     // menu configuration
 
@@ -136,7 +136,7 @@ public class App {
         sb.append("\n| -    ~ ~ ~ ~ |4| CRÉDITOS  ~ ~     ~ ~  |5| SAIR ~ ~ ~ ~     - |");
         sb.append("\n| - - - - - - - - - - - - - - -  - - - - - - - - - - - - - - - - |");
         show.println(sb.toString());
-        
+
         optionDecision();
     }
 
@@ -208,7 +208,7 @@ public class App {
         show.println("Digite [M] para retornar ao menu ou [E] para sair do jogo.");
         char option = sc.next().toLowerCase().charAt(0);
 
-        switch(option) {
+        switch (option) {
             case 'm':
                 gameMenu();
                 break;
