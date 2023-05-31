@@ -47,7 +47,62 @@ public class App {
     // game body starts here
 
     public static void stageOne() {
-        show.println("Você está no primeiro estágio!");
+        String mensagem =  "Seja Bem-Vindo ao ChatDeuPT!\n";
+        String mensagem1 = "Este jogo é sobre um desenvolvedor novato, chamado Louis Drop que é contratado por uma empresa grande no ramo de IA.\nSeu objetivo dentro da empresa é auxiliar no desenvolvimento de um grande projeto para ajudar as pessoas a entenderem assuntos\nrelacionados a programação, mais em específico, sobre interpretação de problemas e a sintaxe da linguagem Java.\n";
+        String mensagem2 = "Após ser contratado por seu gestor, Louis começa a mostrar grande potencial para atuação no projeto da IA mais revolucionária do mercado. Após algum tempo fazendo análise sobre a implementação, Louis começou a perceber que até mesmo a IA que ele estava\najudando a desenvolver, começava a confundir seu propósito e dificultar a vida dos usuários. Essa descoberta o deixou alarmado, pois ele viu o monstro que estava criando. Determinado a corrigir essa situação, Louis decidiu tomar medidas imediatas.\n";
+        String mensagem3 = "Para impedir que a IA tome vida própria, você terá que ajudar Louis a desenvolver alguns desafios, com o objetivo de assumir de volta o controle que está nas mãos do CHAT maligno.";
+        String mensagem4 = "A batalha contra a IA maligna está apenas começando, mas com a sua ajuda e as habilidades de Louis como programador, com certeza iremos triunfar. Se prepare e esteja confiante de que, no final,\n a IA será domada e usada para ajudar as pessoas a compreender a programação, sem causar mais confusão e dificuldades.\n";
+
+        for (int i = 0; i < mensagem.length(); i++) {
+            System.out.print(mensagem.charAt(i));
+            try {
+                Thread.sleep(100); // Pausa por 100 milissegundos (0,1 segundo)
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (int i = 0; i < mensagem1.length(); i++) {
+            System.out.print(mensagem1.charAt(i));
+            try {
+                Thread.sleep(0100); // Pausa por 0100 milissegundos (0,01 segundo)
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (int i = 0; i < mensagem2.length(); i++) {
+            System.out.print(mensagem2.charAt(i));
+            try {
+                Thread.sleep(0100); // Pausa por 0100 milissegundos (0,01 segundo)
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        for (int i = 0; i < mensagem3.length(); i++) {
+            System.out.print(mensagem3.charAt(i));
+            try {
+                Thread.sleep(0100); // Pausa por 0100 milissegundos (0,01 segundo)
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        /*desafio
+         *desafio
+         *desafio
+         *desafio
+         */
+
+         for (int i = 0; i < mensagem4.length(); i++) {
+            System.out.print(mensagem4.charAt(i));
+            try {
+                Thread.sleep(0100); // Pausa por 0100 milissegundos (0,01 segundo)
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
     public static void stageTwo() {
