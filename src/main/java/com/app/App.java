@@ -91,12 +91,18 @@ public class App {
     }
 
     public static void stageTwo() {
+        code_playerName = code_playerName;
+        code_stageLevel = "second-stage";
+        code_challengeLevel = "2a";
+        saveGame(code_playerName, code_stageLevel, code_challengeLevel);
         show.println("OLÁ! " + code_playerName + ", VOCÊ ESTÁ NO SEGUNDO ESTÁGIO");
 
         String mensagem = "\nDesafio 2 - CELERON\n";
         String mensagem1 = "Você está evoluindo, muito bem! ";
         String mensagem2 = "- Louis se sente um pouco aliviado por ter você para auxiliá-lo, agora precisamos passar por mais uma etapa, só assim\n conseguiremos melhorar nossas habilidades e pegar de volta o que sempre foi nosso de direito.\n";
         String mensagem3 = "\n- CHAT: HAHAHA, acho difícil, eu não vou deixar barato desta vez!\nO próximo desafio será mais difícil que os outros, pode ter certeza!";
+
+        secondChallenge();
 
         /*
          * fasterThreading(mensagem);
@@ -658,8 +664,22 @@ public class App {
     }
 
     static void secondChallenge() {
-        anyKeyToContinue();
         setStage("2b");
+        anyKeyToContinue();
+
+        int result = testPlayerCode(counterChallenge);
+
+        switch (result) {
+            case 0:
+                show.println("Você não passou no teste, tente novamente.\n\n");
+                break;
+            case 1:
+                show.println("Você passou no teste, parabéns!\n\n");
+                stageTwo();
+                break;
+            default:
+                break;
+        }
     }
 
     static void thirdChallenge() {

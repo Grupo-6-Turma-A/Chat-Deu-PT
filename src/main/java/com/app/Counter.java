@@ -7,11 +7,11 @@ public class Counter {
     // array (true means present).
     int count = 0;
 
-    for (int i = 0; i < arrayOfSheeps.length; i++) {
-      if (arrayOfSheeps[i] == true) {
-        count++;
-      }
-    }
+    // for (int i = 0; i < arrayOfSheeps.length; i++) {
+    // if (arrayOfSheeps[i] == true) {
+    // count++;
+    // }
+    // }
 
     return count;
   }
