@@ -1,9 +1,19 @@
 package com.app;
 
 public class Binary {
-  // Given a string of digits, you should replace any digit below 5 with '0' and
-  // any digit 5 and above with '1'. Return the resulting string.
+  // Dada uma sequência de dígitos, você deve substituir qualquer dígito abaixo de
+  // 5 por '0' e
+  // qualquer dígito 5 e acima por '1'. Retorne a string resultante.
   public static String fakeBinary(String numberString) {
-    return "";
+    // Code here
+    String result = "";
+    for (int i = 0; i < numberString.length(); i++) {
+      if (numberString.charAt(i) < '5') {
+        result += '0';
+      } else {
+        result += '1';
+      }
+    }
+    return result;
   }
 }
