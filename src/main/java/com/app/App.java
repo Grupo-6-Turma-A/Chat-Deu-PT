@@ -75,27 +75,127 @@ public class App {
     }
 
     public static void stageTwo() {
-        String mensagem = "Desafio 2 - CELERON";
+        String mensagem = "\nDesafio 2 - CELERON\n";
         String mensagem1 = "Você está evoluindo, muito bem! ";
-        String mensagem2 = "Louis se sente um pouco aliviado por ter você para auxiliá-lo, agora precisamos passar por mais uma etapa, só assim conseguiremos melhorar nossas habilidades e pegar de volta o que sempre foi nosso de direito.";
-        String mensagem3 = "\n- CHAT: hahaha, acho difícil, eu não vou deixar barato desta vez! O próximo desafio será mais difícil que os outros, pode ter certeza! ";
+        String mensagem2 = "- Louis se sente um pouco aliviado por ter você para auxiliá-lo, agora precisamos passar por mais uma etapa, só assim\n conseguiremos melhorar nossas habilidades e pegar de volta o que sempre foi nosso de direito.\n";
+        String mensagem3 = "\n- CHAT: HAHAHA, acho difícil, eu não vou deixar barato desta vez!\nO próximo desafio será mais difícil que os outros, pode ter certeza!";
+
+        Threading1(mensagem);
+        Threading(mensagem1);
+        Threading(mensagem2);
+        Threading(mensagem3);
     }
 
     public static void stageTree() {
-        show.println("Você está no terceiro estágio!");
+        String mensagem = "Desafio 3 - ITANIUM\n";
+        String mensagem1 = "- Louis: Você conseguiu, aprimorou suas habilidades e agora estamos muito\nperto de vencer essa inteligência artificial maldosa.\n";
+        String mensagem2 = "- CHAT: Droga! Achei que vocês não passariam do desafio com BOOLEAN.\nMas pode deixar, eu não vou dar mole na próxima.\n";
+        
+        Threading1(mensagem);
+        Threading(mensagem1);
+        Threading(mensagem2);
+        
+
+  /*package com.app; 
+
+    public class Alarm { 
+
+  // Escreva uma função chamada setAlarm que recebe dois parâmetros. O primeiro 
+
+  // parâmetro, empregado, é verdadeiro sempre que o utilizador estiver empregado 
+
+  // e o segundo parâmetro, férias, é verdadeiro sempre que o utilizador estiver 
+
+  // de férias. 
+
+  
+
+  // A função deve retornar true se você estiver empregado e não estiver de férias 
+
+  // (porque essas são as circunstâncias nas quais você precisa definir um alarme). 
+
+  // Deve retornar falso caso contrário. Exemplos: 
+
+  
+
+  // setAlarm(true, true) -> false 
+
+  // setAlarm(false, true) -> false 
+
+  // setAlarm(false, false) -> false 
+
+  // setAlarm(true, false) -> true 
+
+  
+
+  public static boolean setAlarm(boolean empregado, boolean ferias) { 
+
+    // Escreva aqui o seu código. 
+
+    return false; 
+
+  } 
+
+}  */
     }
 
     public static void stageFour() {
-        show.println("Você está no quarto estágio!");
+        String mensagem = "- CHAT: Vamos vê se vocês são é realmente bons, quero vê se consegue resolver um desafio com ARRAY hahaha.\n";
+        String mensagem1 = "\nDesafio 4 - QUARK SOC\n";
+        String mensagem2 = "- LOUIS: Muito Bem! Está evoluindo e garanto que está pronto para me ajudar na última fase, com certeza iremos conseguir derrotar o CHAT!\n";
+        
+        Threading(mensagem);
+        Threading1(mensagem1);
+        Threading(mensagem2);
+
+
+        /*package com.app; 
+
+  
+
+public class Positive { 
+
+  // Dado um array de números inteiros positivos e negativos, escreva uma função 
+
+  // que retorne a soma dos números positivos desse array. 
+
+  // Se o array não contiver números positivos, a sua função deverá retornar 0. 
+
+  
+
+  public static int sum(int[] numeros) { 
+
+    // Escreva aqui o seu código. 
+
+    return 0; 
+
+  } 
+
+} 
+         */
+
     }
 
     public static void stageFive() {
-        show.println("Você está no quinto estágio!");
+        String mensagem = "- CHAT: DÚVIDO, agora eu vou botar pra quebrar, esse último desafio não vai ter moleza!\n";
+        String mensagem1 = "\n Desafio 5 - CORE\n";
+        String mensagem2 = "LOUIS: Conseguimos! Vencemos o último desafio. Obrigado (nome do jogador), se não fosse você, eu não teria conseguido, agora, podemos retomar o controle da IA e garantir que ela seja usada para ajudar as pessoas,\nsem causar confusão ou dificuldades.\n";
+        String mensagem3 = "CHAT: Surpreendente... Vocês realmente são excepcionais. Não esperava que chegassem tão longe. Mas tenham em mente que não sou o único. Outros desafios virão, e estarei pronto para enfrentá-los.";
+        String mensagem4 = "LOUIS: Estamos preparados para o que vier. Com nossas habilidades e determinação, seremos capazes de superar qualquer desafio e garantir que a IA seja uma aliada, não uma ameaça. ";
+        String mensagem5 = "E assim, Louis e (nome do jogador), como uma dupla extraordinária, conseguiram vencer o CHAT maligno e retomar o controle da IA.\nE juntos continuaram trabalhando para desenvolver projetos que ajudam as pessoas a compreenderem a programação, de forma clara e eficiente.\n";
+
+        Threading(mensagem);
+        Threading1(mensagem1);
+        Threading(mensagem2);
+        Threading(mensagem3);
+        Threading(mensagem4);
+        Threading(mensagem4);
+        Threading(mensagem5);
     }
 
-     // method to print with speed 0.1
+    // method to print with speed 0.1
 
-     static void Threading1(String mensagem) {
+    static void Threading1(String mensagem) {
         for (int i = 0; i < mensagem.length(); i++) {
             System.out.print(mensagem.charAt(i));
             try {
@@ -106,20 +206,18 @@ public class App {
         }
     }
 
-    // method to print with speed 0.01
+    // method to print with speed 0.001
 
     static void Threading(String mensagem) {
         for (int i = 0; i < mensagem.length(); i++) {
             System.out.print(mensagem.charAt(i));
             try {
-                Thread.sleep(00100); // Pausa por 0100 milissegundos (0,01 segundo)
+                Thread.sleep(00100); // Pausa por 0100 milissegundos (0,001 segundo)
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
     }
-
-
 
     // game body ends here
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
