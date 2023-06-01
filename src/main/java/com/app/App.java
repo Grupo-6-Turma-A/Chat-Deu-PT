@@ -34,19 +34,23 @@ public class App {
     static Scanner sc = new Scanner(System.in);
     static PrintStream show = System.out;
 
-    // player info
-    static String player_name = null;
-    static String file_stage = null;
-    static String player_stage = null;
+    // player info - code
+    static String code_playerName = null;
+    static String code_stageLevel = null;
+    static String code_challengeLevel = null;
 
     public static void main(String[] args) throws Exception {
         gameMenu();
     }
 
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
     // game body starts here
 
     public static void stageOne() {
+        show.println("OLÁ! " + code_playerName + ", VOCÊ ESTÁ NO PRIMEIRO ESTÁGIO");
+
+
         String mensagem = "Seja Bem-Vindo ao ChatDeuPT!\n";
         String mensagem1 = "Este jogo é sobre um desenvolvedor novato, chamado Louis Drop que é contratado por uma empresa grande no ramo de IA.\nSeu objetivo dentro da empresa é auxiliar no desenvolvimento de um grande projeto para ajudar as pessoas a entenderem assuntos\nrelacionados a programação, mais em específico, sobre interpretação de problemas e a sintaxe da linguagem Java.\n";
         String mensagem2 = "Após ser contratado por seu gestor, Louis começa a mostrar grande potencial para atuação no projeto da IA mais revolucionária\n do mercado. Após algum tempo fazendo análise sobre a implementação, Louis começou a perceber que até mesmo a IA que ele estava\najudando a desenvolver, começava a confundir seu propósito e dificultar a vida dos usuários. Essa descoberta o deixou alarmado, pois ele viu o monstro que estava criando. Determinado a corrigir essa situação, Louis decidiu tomar medidas imediatas.\n";
@@ -54,129 +58,73 @@ public class App {
         String mensagem4 = "\nDesafio 1 - ATOM\n";
         String mensagem5 = "\nA batalha contra a IA maligna está apenas começando, mas com a sua ajuda e as habilidades de Louis como programador,\n com certeza iremos triunfar. Se prepare e esteja confiante de que, no final,\n a IA será domada e usada para ajudar as pessoas a compreender a programação, sem causar mais confusão e dificuldades.\n";
 
-        Threading1(mensagem);
-
-        Threading(mensagem1);
-
-        Threading(mensagem2);
-
-        Threading(mensagem3);
-
-        Threading1(mensagem4);
         /*
-         * desafio
-         * desafio
-         * desafio
-         * desafio
-         */
+        fasterThreading(mensagem);
+        slowerThreading(mensagem1);
+        slowerThreading(mensagem2);
+        slowerThreading(mensagem3);
+        fasterThreading(mensagem4);
+        
+        // desafio
 
-        Threading(mensagem5);
+         slowerThreading(mensagem5);
+        */
 
     }
 
     public static void stageTwo() {
+        show.println("OLÁ! " + code_playerName + ", VOCÊ ESTÁ NO SEGUNDO ESTÁGIO");
+
         String mensagem = "\nDesafio 2 - CELERON\n";
         String mensagem1 = "Você está evoluindo, muito bem! ";
         String mensagem2 = "- Louis se sente um pouco aliviado por ter você para auxiliá-lo, agora precisamos passar por mais uma etapa, só assim\n conseguiremos melhorar nossas habilidades e pegar de volta o que sempre foi nosso de direito.\n";
         String mensagem3 = "\n- CHAT: HAHAHA, acho difícil, eu não vou deixar barato desta vez!\nO próximo desafio será mais difícil que os outros, pode ter certeza!";
 
-        Threading1(mensagem);
-        Threading(mensagem1);
-        Threading(mensagem2);
-        Threading(mensagem3);
+        /*
+        fasterThreading(mensagem);
+        slowerThreading(mensagem1);
+        slowerThreading(mensagem2);
+        slowerThreading(mensagem3);
+        */
     }
 
     public static void stageTree() {
+        show.println("OLÁ! " + code_playerName + ", VOCÊ ESTÁ NO TERCEIRO ESTÁGIO");
+
         String mensagem = "Desafio 3 - ITANIUM\n";
         String mensagem1 = "- Louis: Você conseguiu, aprimorou suas habilidades e agora estamos muito\nperto de vencer essa inteligência artificial maldosa.\n";
         String mensagem2 = "- CHAT: Droga! Achei que vocês não passariam do desafio com BOOLEAN.\nMas pode deixar, eu não vou dar mole na próxima.\n";
-        
-        Threading1(mensagem);
-        Threading(mensagem1);
-        Threading(mensagem2);
-        
+       /*  
+        fasterThreading(mensagem);
+        slowerThreading(mensagem1);
+        slowerThreading(mensagem2);
+       */
 
-  /*package com.app; 
-
-    public class Alarm { 
-
-  // Escreva uma função chamada setAlarm que recebe dois parâmetros. O primeiro 
-
-  // parâmetro, empregado, é verdadeiro sempre que o utilizador estiver empregado 
-
-  // e o segundo parâmetro, férias, é verdadeiro sempre que o utilizador estiver 
-
-  // de férias. 
-
-  
-
-  // A função deve retornar true se você estiver empregado e não estiver de férias 
-
-  // (porque essas são as circunstâncias nas quais você precisa definir um alarme). 
-
-  // Deve retornar falso caso contrário. Exemplos: 
-
-  
-
-  // setAlarm(true, true) -> false 
-
-  // setAlarm(false, true) -> false 
-
-  // setAlarm(false, false) -> false 
-
-  // setAlarm(true, false) -> true 
-
-  
-
-  public static boolean setAlarm(boolean empregado, boolean ferias) { 
-
-    // Escreva aqui o seu código. 
-
-    return false; 
-
-  } 
-
-}  */
+        // desafio
     }
 
     public static void stageFour() {
+        show.println("OLÁ! " + code_playerName + ", VOCÊ ESTÁ NO QUARTO ESTÁGIO");
+
         String mensagem = "- CHAT: Vamos vê se vocês são é realmente bons, quero vê se consegue resolver um desafio com ARRAY hahaha.\n";
         String mensagem1 = "\nDesafio 4 - QUARK SOC\n";
         String mensagem2 = "- LOUIS: Muito Bem! Está evoluindo e garanto que está pronto para me ajudar na última fase, com certeza iremos conseguir derrotar o CHAT!\n";
-        
-        Threading(mensagem);
-        Threading1(mensagem1);
-        Threading(mensagem2);
+       
+        /*
+         slowerThreading(mensagem);
+         fasterThreading(mensagem1);
+         slowerThreading(mensagem2);
+        */
 
 
-        /*package com.app; 
 
-  
-
-public class Positive { 
-
-  // Dado um array de números inteiros positivos e negativos, escreva uma função 
-
-  // que retorne a soma dos números positivos desse array. 
-
-  // Se o array não contiver números positivos, a sua função deverá retornar 0. 
-
-  
-
-  public static int sum(int[] numeros) { 
-
-    // Escreva aqui o seu código. 
-
-    return 0; 
-
-  } 
-
-} 
-         */
+        // desafio
 
     }
 
     public static void stageFive() {
+        show.println("OLÁ! " + code_playerName + ", VOCÊ ESTÁ NO QUINTO ESTÁGIO");
+
         String mensagem = "- CHAT: DÚVIDO, agora eu vou botar pra quebrar, esse último desafio não vai ter moleza!\n";
         String mensagem1 = "\n Desafio 5 - CORE\n";
         String mensagem2 = "LOUIS: Conseguimos! Vencemos o último desafio. Obrigado (nome do jogador), se não fosse você, eu não teria conseguido, agora, podemos retomar o controle da IA e garantir que ela seja usada para ajudar as pessoas,\nsem causar confusão ou dificuldades.\n";
@@ -184,18 +132,20 @@ public class Positive {
         String mensagem4 = "LOUIS: Estamos preparados para o que vier. Com nossas habilidades e determinação, seremos capazes de superar qualquer desafio e garantir que a IA seja uma aliada, não uma ameaça. ";
         String mensagem5 = "E assim, Louis e (nome do jogador), como uma dupla extraordinária, conseguiram vencer o CHAT maligno e retomar o controle da IA.\nE juntos continuaram trabalhando para desenvolver projetos que ajudam as pessoas a compreenderem a programação, de forma clara e eficiente.\n";
 
-        Threading(mensagem);
-        Threading1(mensagem1);
-        Threading(mensagem2);
-        Threading(mensagem3);
-        Threading(mensagem4);
-        Threading(mensagem4);
-        Threading(mensagem5);
+        /* 
+        slowerThreading(mensagem);
+        fasterThreading(mensagem1);
+        slowerThreading(mensagem2);
+        slowerThreading(mensagem3);
+        slowerThreading(mensagem4);
+        slowerThreading(mensagem4);
+        slowerThreading(mensagem5);
+        */
     }
 
     // method to print with speed 0.1
 
-    static void Threading1(String mensagem) {
+    static void fasterThreading(String mensagem) {
         for (int i = 0; i < mensagem.length(); i++) {
             System.out.print(mensagem.charAt(i));
             try {
@@ -208,7 +158,7 @@ public class Positive {
 
     // method to print with speed 0.001
 
-    static void Threading(String mensagem) {
+    static void slowerThreading(String mensagem) {
         for (int i = 0; i < mensagem.length(); i++) {
             System.out.print(mensagem.charAt(i));
             try {
@@ -220,6 +170,7 @@ public class Positive {
     }
 
     // game body ends here
+
     // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
     // menu configuration
@@ -318,75 +269,118 @@ public class Positive {
         }
     }
 
+    /**
+     * Creates a new game saving playes names and setting
+     * stage to first and challenge to 1a.
+     * 
+     * 1a means that player didnt reach the challenge
+     * 1b player already reached the challenge
+     */
     public static void newGame() {
         show.println("Qual será seu nome? ");
-        player_name = sc.next();
-        player_stage = "first-stage";
-        saveGame(player_name, player_stage);
+        // new player info 
+        code_playerName = sc.next();
+        String code_stageLevel = "first-stage";
+        String code_challengeLevel = "1a";
 
+        saveGame(code_playerName, code_stageLevel, code_challengeLevel);
         reviveMenu();
     }
 
     /**
-     * save game on cfg file
-     *
-     * @param name  player name
-     * @param stage actual player stage
+     * Save game information and replace the cfg.json
+     * 
+     * IMPORTANT - method params must be the new stage, challenge levels.
+     * code prefix means that data is on code and must be written on cfg
+     * file prefix means that information will be saved on cfg
+     * @param codeName 
+     * @param codeStage
+     * @param codeChallenge
      */
-    public static void saveGame(String name, String stage) {
-        if (stage != null)
-            file_stage = stage;
+    public static void saveGame(String codeName, String codeStage, String codeChallenge) {
+       // setting file data
+       String file_playerName = codeName;
+       String file_challengeLevel = codeChallenge;
 
-        // preparing json data
-        JSONObject json = new JSONObject();
-        json.put("name", player_name);
-        json.put("stage", file_stage);
+       String file_stageLevel = "";
+        if (codeStage != null)
+            file_stageLevel = codeStage;
 
-        // saving file
-        FileWriter writerFile = null;
-        try {
-            writerFile = new FileWriter("cfg.json");
-            writerFile.write(json.toJSONString());
-            writerFile.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            System.out.println("Jogo salvo!");
-        }
+       // preparing json data
+       JSONObject json = new JSONObject();
+       json.put("name", file_playerName);
+       json.put("stage", file_stageLevel);
+       json.put("challenge", file_challengeLevel);
+
+       // saving file
+       FileWriter writerFile = null;
+       try {
+           writerFile = new FileWriter("cfg.json");
+           writerFile.write(json.toJSONString());
+           writerFile.close();
+       } catch (Exception e) {
+           e.printStackTrace();
+       } finally {
+           System.out.println("Salvo com sucesso!");
+       }
     }
 
     /*
-     * load a game using json data then call
-     * verifyStage using json_stage as parameter
+     * Will load a game reading the file stage and file challenge
      */
     public static void loadGame() {
         JSONParser parser = new JSONParser();
         JSONObject json;
 
-        String json_name, json_stage = "";
+        String file_nameLoad = " ", file_stageLoad = "", file_challengeLoad = "";
         try {
             json = (JSONObject) parser.parse(new FileReader("cfg.json"));
-            json_name = (String) json.get("name");
-            json_stage = (String) json.get("stage");
+            file_nameLoad = (String) json.get("name");
+            file_stageLoad = (String) json.get("stage");
+            file_challengeLoad = (String) json.get("challenge");
         } catch (Exception e) {
             e.printStackTrace();
         }
-        verifyStage(json_stage);
+        verifyStage(file_stageLoad, file_challengeLoad);
     }
 
     /**
-     * verify the stage and call the corresponding
-     * game body
-     * 
-     * @param stage thatll be verified
+     * This method will read fileStage and fileChallenge,
+     * verifying first file and then challenge.
+     * @param fileStage
+     * @param fileChallenge
      */
-    public static void verifyStage(String stage) {
-        if (stage.equals("first-stage")) {
-            stageOne();
-            show.println("load complete");
-        } else if (stage.equals("second-stage")) {
-            stageTwo();
-            show.println("Carregamento concluído!");
+    public static void verifyStage(String fileStage, String fileChallenge) {
+        if (fileStage.equals("first-stage")) {
+            if (fileChallenge.equals("1a")) {
+                stageOne();
+            } else {
+                firstChallenge();
+            }
+        } else if (fileStage.equals("second-stage")) {
+            if (fileChallenge.equals("2a")) {
+                stageTwo();
+            } else {
+                secondChallenge();
+            }
+        } else if (fileStage.equals("third-stage")) {
+            if (fileChallenge.equals("3a")) {
+                stageTree();
+            } else {
+                thirdChallenge();
+            }
+        } else if (fileStage.equals("fourth-stage")) {
+            if (fileChallenge.equals("4a")) {
+                stageFour();
+            } else {
+                fourthChallenge();
+            }
+        } else if (fileStage.equals("fifth-stage")) {
+            if (fileChallenge.equals("5a")) {
+                stageFive();
+            } else {
+                fifthChallenge();
+            }
         }
     }
 
@@ -512,5 +506,27 @@ public class Positive {
 
     public static void printOption(int option, String text) {
         System.out.println("(" + option + ") " + text);
+    }
+
+    // CHALLENGES STARTS HERE
+
+    static void firstChallenge() {
+        printHeading("primeiro desafio");
+    }
+
+    static void secondChallenge() {
+        printHeading("segundo desafio");
+    }
+
+    static void thirdChallenge() {
+        printHeading("terceiro desafio");
+    }
+
+    static void fourthChallenge() {
+        printHeading("quarto desafio");
+    }
+
+    static void fifthChallenge() {
+        printHeading("quinto desafio");
     }
 }
