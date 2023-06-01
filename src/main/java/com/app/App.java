@@ -614,9 +614,26 @@ public class App {
         System.out.println("(" + option + ") " + text);
     }
 
+    static void setStage(String newChallengeLevel) {
+        JSONParser parser = new JSONParser();
+        JSONObject json;
+
+        String file_nameLoad = " ", file_stageLoad = "", file_challengeLoad = "";
+        try {
+            json = (JSONObject) parser.parse(new FileReader("cfg.json"));
+            file_nameLoad = (String) json.get("name");
+            file_stageLoad = (String) json.get("stage");
+            json.put("challenge", newChallengeLevel);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        saveGame(file_nameLoad, file_stageLoad, newChallengeLevel);
+    }
+
     // CHALLENGES STARTS HERE
 
     static void firstChallenge() {
+        setStage("1b");
         fasterThreading(
                 "Dada uma sequência de dígitos, você deve substituir qualquer dígito abaixo de 5 por '0' e qualquer dígito 5 e acima por '1'.\nRetorne a string resultante.\n\n");
         fasterThreading(
@@ -641,18 +658,22 @@ public class App {
     }
 
     static void secondChallenge() {
-        printHeading("segundo desafio");
+        anyKeyToContinue();
+        setStage("2b");
     }
 
     static void thirdChallenge() {
-        printHeading("terceiro desafio");
+        anyKeyToContinue();
+        setStage("3b");
     }
 
     static void fourthChallenge() {
-        printHeading("quarto desafio");
+        anyKeyToContinue();
+        setStage("4b");
     }
 
     static void fifthChallenge() {
-        printHeading("quinto desafio");
+        anyKeyToContinue();
+        setStage("5b");
     }
 }
