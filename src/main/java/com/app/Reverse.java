@@ -1,11 +1,23 @@
 package com.app;
 
+  /* Converter um número inteiro para um array desse número invertido
+   * dado um número inteiro não negativo escreva um código que retorne um 
+   * array desse(s) número(s) invertido(s).
+   */
+
 public class Reverse {
-  // Converter um número inteiro para um array desse número invertido.
+  
   public int[] reverseNumber(int number) {
-    // Dado um número inteiro não negativo escreva um código que retorne um array
-    // desse(s) número(s) invertido(s).
-    // Coloque seu código aqui.
-    return null;
+    // Escreva aqui o seu código.
+    int[] result = new int[Integer.toString(number).length()];
+
+    int i = 0;
+    while (number > 0) {
+      result[i] = number % 10;
+      number = number / 10;
+      i++;
+    }
+
+    return result;
   }
 }
