@@ -4,7 +4,9 @@ import javazoom.jl.player.Player;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 import javax.tools.JavaCompiler;
 import javax.tools.ToolProvider;
 
@@ -31,6 +33,25 @@ public class App {
             true
     };
 
+    static String[] counterChallenge = { "src/main/java/com/app/Counter.java", "com.app.Counter", "countSheeps", "0" };
+    static String[] binaryChallgenge = { "src/main/java/com/app/Binary.java", "com.app.Binary", "fakeBinary", "4" };
+    static String[] alarmChallgenge = { "src/main/java/com/app/Alarm.java", "com.app.Alarm", "setAlarm", "1" };
+    static String[] numChallgenge = { "src/main/java/com/app/Num.java", "com.app.Num", "numToString", "4" };
+    static String[] positiveChallgenge = { "src/main/java/com/app/Positive.java", "com.app.Positive", "sum", "2" };
+    static String[] reverseChallgenge = { "src/main/java/com/app/Reverse.java", "com.app.Reverse", "reverseNumber",
+            "3" };
+    static String[] stringToArrayChallgenge = { "src/main/java/com/app/StringToArray.java", "com.app.StringToArray",
+            "stringToArray", "5" };
+
+    static String binaryTest1 = "45385593107843568";
+    static String binaryTest2 = "509321967506747";
+    static String binaryTest3 = "366058562030849490134388085";
+
+    static int[] sumTest1 = { 1, 2, 3, 4, 5 };
+    static int[] sumTest2 = { 1, -2, 3, 4, 5 };
+    static int[] sumTest3 = {};
+
+    static StringBuilder sb = new StringBuilder();
     static Scanner sc = new Scanner(System.in);
     static PrintStream show = System.out;
 
@@ -50,7 +71,6 @@ public class App {
     public static void stageOne() {
         show.println("OLÁ! " + code_playerName + ", VOCÊ ESTÁ NO PRIMEIRO ESTÁGIO");
 
-
         String mensagem = "Seja Bem-Vindo ao ChatDeuPT!\n";
         String mensagem1 = "Este jogo é sobre um desenvolvedor novato, chamado Louis Drop que é contratado por uma empresa grande no ramo de IA.\nSeu objetivo dentro da empresa é auxiliar no desenvolvimento de um grande projeto para ajudar as pessoas a entenderem assuntos\nrelacionados a programação, mais em específico, sobre interpretação de problemas e a sintaxe da linguagem Java.\n";
         String mensagem2 = "Após ser contratado por seu gestor, Louis começa a mostrar grande potencial para atuação no projeto da IA mais revolucionária\n do mercado. Após algum tempo fazendo análise sobre a implementação, Louis começou a perceber que até mesmo a IA que ele estava\najudando a desenvolver, começava a confundir seu propósito e dificultar a vida dos usuários. Essa descoberta o deixou alarmado, pois ele viu o monstro que estava criando. Determinado a corrigir essa situação, Louis decidiu tomar medidas imediatas.\n";
@@ -59,16 +79,16 @@ public class App {
         String mensagem5 = "\nA batalha contra a IA maligna está apenas começando, mas com a sua ajuda e as habilidades de Louis como programador,\n com certeza iremos triunfar. Se prepare e esteja confiante de que, no final,\n a IA será domada e usada para ajudar as pessoas a compreender a programação, sem causar mais confusão e dificuldades.\n";
 
         /*
-        fasterThreading(mensagem);
-        slowerThreading(mensagem1);
-        slowerThreading(mensagem2);
-        slowerThreading(mensagem3);
-        fasterThreading(mensagem4);
-        
-        // desafio
-
-         slowerThreading(mensagem5);
-        */
+         * fasterThreading(mensagem);
+         * slowerThreading(mensagem1);
+         * slowerThreading(mensagem2);
+         * slowerThreading(mensagem3);
+         * fasterThreading(mensagem4);
+         * 
+         * // desafio
+         * 
+         * slowerThreading(mensagem5);
+         */
 
     }
 
@@ -81,11 +101,11 @@ public class App {
         String mensagem3 = "\n- CHAT: HAHAHA, acho difícil, eu não vou deixar barato desta vez!\nO próximo desafio será mais difícil que os outros, pode ter certeza!";
 
         /*
-        fasterThreading(mensagem);
-        slowerThreading(mensagem1);
-        slowerThreading(mensagem2);
-        slowerThreading(mensagem3);
-        */
+         * fasterThreading(mensagem);
+         * slowerThreading(mensagem1);
+         * slowerThreading(mensagem2);
+         * slowerThreading(mensagem3);
+         */
     }
 
     public static void stageTree() {
@@ -94,11 +114,11 @@ public class App {
         String mensagem = "Desafio 3 - ITANIUM\n";
         String mensagem1 = "- Louis: Você conseguiu, aprimorou suas habilidades e agora estamos muito\nperto de vencer essa inteligência artificial maldosa.\n";
         String mensagem2 = "- CHAT: Droga! Achei que vocês não passariam do desafio com BOOLEAN.\nMas pode deixar, eu não vou dar mole na próxima.\n";
-       /*  
-        fasterThreading(mensagem);
-        slowerThreading(mensagem1);
-        slowerThreading(mensagem2);
-       */
+        /*
+         * fasterThreading(mensagem);
+         * slowerThreading(mensagem1);
+         * slowerThreading(mensagem2);
+         */
 
         // desafio
     }
@@ -109,14 +129,12 @@ public class App {
         String mensagem = "- CHAT: Vamos vê se vocês são é realmente bons, quero vê se consegue resolver um desafio com ARRAY hahaha.\n";
         String mensagem1 = "\nDesafio 4 - QUARK SOC\n";
         String mensagem2 = "- LOUIS: Muito Bem! Está evoluindo e garanto que está pronto para me ajudar na última fase, com certeza iremos conseguir derrotar o CHAT!\n";
-       
+
         /*
-         slowerThreading(mensagem);
-         fasterThreading(mensagem1);
-         slowerThreading(mensagem2);
-        */
-
-
+         * slowerThreading(mensagem);
+         * fasterThreading(mensagem1);
+         * slowerThreading(mensagem2);
+         */
 
         // desafio
 
@@ -132,15 +150,15 @@ public class App {
         String mensagem4 = "LOUIS: Estamos preparados para o que vier. Com nossas habilidades e determinação, seremos capazes de superar qualquer desafio e garantir que a IA seja uma aliada, não uma ameaça. ";
         String mensagem5 = "E assim, Louis e (nome do jogador), como uma dupla extraordinária, conseguiram vencer o CHAT maligno e retomar o controle da IA.\nE juntos continuaram trabalhando para desenvolver projetos que ajudam as pessoas a compreenderem a programação, de forma clara e eficiente.\n";
 
-        /* 
-        slowerThreading(mensagem);
-        fasterThreading(mensagem1);
-        slowerThreading(mensagem2);
-        slowerThreading(mensagem3);
-        slowerThreading(mensagem4);
-        slowerThreading(mensagem4);
-        slowerThreading(mensagem5);
-        */
+        /*
+         * slowerThreading(mensagem);
+         * fasterThreading(mensagem1);
+         * slowerThreading(mensagem2);
+         * slowerThreading(mensagem3);
+         * slowerThreading(mensagem4);
+         * slowerThreading(mensagem4);
+         * slowerThreading(mensagem5);
+         */
     }
 
     // method to print with speed 0.1
@@ -278,7 +296,7 @@ public class App {
      */
     public static void newGame() {
         show.println("Qual será seu nome? ");
-        // new player info 
+        // new player info
         code_playerName = sc.next();
         String code_stageLevel = "first-stage";
         String code_challengeLevel = "1a";
@@ -293,36 +311,37 @@ public class App {
      * IMPORTANT - method params must be the new stage, challenge levels.
      * code prefix means that data is on code and must be written on cfg
      * file prefix means that information will be saved on cfg
-     * @param codeName 
+     * 
+     * @param codeName
      * @param codeStage
      * @param codeChallenge
      */
     public static void saveGame(String codeName, String codeStage, String codeChallenge) {
-       // setting file data
-       String file_playerName = codeName;
-       String file_challengeLevel = codeChallenge;
+        // setting file data
+        String file_playerName = codeName;
+        String file_challengeLevel = codeChallenge;
 
-       String file_stageLevel = "";
+        String file_stageLevel = "";
         if (codeStage != null)
             file_stageLevel = codeStage;
 
-       // preparing json data
-       JSONObject json = new JSONObject();
-       json.put("name", file_playerName);
-       json.put("stage", file_stageLevel);
-       json.put("challenge", file_challengeLevel);
+        // preparing json data
+        JSONObject json = new JSONObject();
+        json.put("name", file_playerName);
+        json.put("stage", file_stageLevel);
+        json.put("challenge", file_challengeLevel);
 
-       // saving file
-       FileWriter writerFile = null;
-       try {
-           writerFile = new FileWriter("cfg.json");
-           writerFile.write(json.toJSONString());
-           writerFile.close();
-       } catch (Exception e) {
-           e.printStackTrace();
-       } finally {
-           System.out.println("Salvo com sucesso!");
-       }
+        // saving file
+        FileWriter writerFile = null;
+        try {
+            writerFile = new FileWriter("cfg.json");
+            writerFile.write(json.toJSONString());
+            writerFile.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("Salvo com sucesso!");
+        }
     }
 
     /*
@@ -347,6 +366,7 @@ public class App {
     /**
      * This method will read fileStage and fileChallenge,
      * verifying first file and then challenge.
+     * 
      * @param fileStage
      * @param fileChallenge
      */
@@ -384,48 +404,134 @@ public class App {
         }
     }
 
-    public static String testPlayerCode() {
+    // Pass the method to be tested and the object to invoke the method on
+    public static boolean testPlayerCode(String[] challenge) {
+        Class<?>[] paramTypes = new Class<?>[] {
+                Boolean[].class,
+                boolean.class,
+                int.class,
+                int[].class,
+                String.class,
+                String[].class
+        };
+
         try {
             OutputStream os = new ByteArrayOutputStream();
             PrintStream ps = new PrintStream(os);
-            PrintStream old = System.out;
             System.setOut(ps);
 
             // Compile the code
             JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
-            int compilationResult = compiler.run(null, null, null, "src/main/java/com/test/Counter.java");
+            int compilationResult = compiler.run(null, null, null, challenge[0]);
             if (compilationResult != 0) {
                 // Compilation failed
-                System.setOut(old);
-                ps.flush();
-                String compilationErrorMessage = "Compilation failed with error code1: " + compilationResult;
-                System.out.println(compilationErrorMessage);
-                return compilationErrorMessage;
+                return false;
             }
             // Load the Counter class
             ClassLoader classLoader = App.class.getClassLoader();
-            Class<?> cls = classLoader.loadClass("com.test.Counter");
+            Class<?> cls = classLoader.loadClass(challenge[1]);
             Object obj = cls.getDeclaredConstructor().newInstance();
-            Method method = cls.getDeclaredMethod("countSheeps", Boolean[].class);
+            Method method = cls.getDeclaredMethod(challenge[2], paramTypes[Integer.parseInt(challenge[3])]);
+
+            switch (challenge[2]) {
+                case "countSheeps":
+                    return counterTest(method, obj);
+                case "fakeBinary":
+                    return fakeBinaryTest(method, obj);
+                case "setAlarm":
+                    return alarmTest(method, obj);
+                case "numToString":
+                    return numTest(method, obj);
+                case "sum":
+                    return positiveTest(method, obj);
+                case "reverseNumber":
+                    return reverseTest(method, obj);
+                case "stringToArray":
+                    return stringToArrayTest(method, obj);
+                default:
+                    return false;
+            }
 
             // Invoke the method
-            method.invoke(obj, (Object) array1);
-            String result = Integer.toString((int) method.invoke(obj, (Object) array1));
-            String result2 = Integer.toString((int) method.invoke(obj, (Object) array2));
-
-            boolean test1 = result.contains("18");
-            boolean test2 = result2.contains("17");
-
-            System.setOut(old);
-            ps.flush(); // Flush the PrintStream to ensure all captured output is written to the
-                        // OutputStream
-            System.out.println(os.toString());
-            return test1 && test2 ? "Test passed" : "Test failed";
         } catch (Exception e) {
-            e.printStackTrace();
-            String error = e.getMessage();
-            return error;
+            return false;
         }
+    }
+
+    public static boolean counterTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        String result = Integer.toString((int) metodo.invoke(obj, (Object) array1));
+        String result2 = Integer.toString((int) metodo.invoke(obj, (Object) array2));
+        boolean test1 = result.contains("18");
+        boolean test2 = result2.contains("17");
+        return test1 && test2;
+    }
+
+    public static boolean alarmTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, true, true).equals(false);
+        boolean test2 = metodo.invoke(obj, false, true).equals(false);
+        boolean test3 = metodo.invoke(obj, false, false).equals(false);
+        boolean test4 = metodo.invoke(obj, true, false).equals(true);
+
+        return test1 && test2 && test3 && test4;
+    }
+
+    public static boolean fakeBinaryTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, binaryTest1).equals("01011110001100111");
+        boolean test2 = metodo.invoke(obj, binaryTest2).equals("101000111101101");
+        boolean test3 = metodo.invoke(obj, binaryTest3).equals("011011110000101010000011011");
+
+        return test1 && test2 && test3;
+    }
+
+    public static boolean numTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        String test1 = ((String) metodo.invoke(obj, 9)).toLowerCase();
+        boolean test1_1 = test1.contains("nove");
+        String test2 = ((String) metodo.invoke(obj, 8)).toLowerCase();
+        boolean test2_1 = test2.contains("oito");
+        String test3 = ((String) metodo.invoke(obj, 7)).toLowerCase();
+        boolean test3_1 = test3.contains("sete");
+        String test4 = ((String) metodo.invoke(obj, 6)).toLowerCase();
+        boolean test4_1 = test4.contains("seis");
+        String test5 = ((String) metodo.invoke(obj, 5)).toLowerCase();
+        boolean test5_1 = test5.contains("cinco");
+        String test6 = ((String) metodo.invoke(obj, 4)).toLowerCase();
+        boolean test6_1 = test6.contains("quatro");
+        String test7 = ((String) metodo.invoke(obj, 3)).toLowerCase();
+        boolean test7_1 = test7.contains("tres");
+        String test8 = ((String) metodo.invoke(obj, 2)).toLowerCase();
+        boolean test8_1 = test8.contains("dois");
+        String test9 = ((String) metodo.invoke(obj, 1)).toLowerCase();
+        boolean test9_1 = test9.contains("um");
+
+        return test1_1 && test2_1 && test3_1 && test4_1 && test5_1 && test6_1 && test7_1 && test8_1 && test9_1;
+    }
+
+    public static boolean positiveTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, sumTest1).equals(15);
+        boolean test2 = metodo.invoke(obj, sumTest2).equals(13);
+        boolean test3 = metodo.invoke(obj, sumTest3).equals(0);
+        return test1 && test2 && test3;
+    }
+
+    public static boolean reverseTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, 123).equals(new int[] { 3, 2, 1 });
+        boolean test2 = metodo.invoke(obj, 1234).equals(new int[] { 4, 3, 2, 1 });
+        boolean test3 = metodo.invoke(obj, 12345).equals(new int[] { 5, 4, 3, 2, 1 });
+        return test1 && test2 && test3;
+    }
+
+    public static boolean stringToArrayTest(Method metodo, Object obj)
+            throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+        boolean test1 = metodo.invoke(obj, "Robin Singh").equals(new String[] { "Robin", "Singh" });
+        boolean test2 = metodo.invoke(obj, "I love arrays they are my favorite")
+                .equals(new String[] { "I", "love", "arrays", "they", "are", "my", "favorite" });
+        return test1 && test2;
     }
 
     public static void soundtrack(String song) {
@@ -483,6 +589,7 @@ public class App {
             System.out.print("-");
         }
         System.out.println();
+        // fodase
     }
 
     /**
