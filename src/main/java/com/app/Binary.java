@@ -1,12 +1,12 @@
 package com.app;
 
-  /* Você receberá uma String de números e sua missão será
-   * substituir todos os números abaixo de [5] por [0] e 
-   * todos os números maiores ou iguais a [5] por [1].
-   */
+/* Você receberá uma String de números e sua missão será
+ * substituir todos os números abaixo de [5] por [0] e 
+ * todos os números maiores ou iguais a [5] por [1].
+ */
 
 public class Binary {
-  
+
   public static String fakeBinary(String numberString) {
     // Escreva aqui o seu código.
     String result = "";
