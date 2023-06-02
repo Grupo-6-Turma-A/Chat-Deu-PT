@@ -76,38 +76,28 @@ public class App {
         String mensagem2 = "Após ser contratado por seu gestor, Louis começa a mostrar grande potencial para atuação no projeto da IA mais revolucionária\ndo mercado. Após algum tempo fazendo análise sobre a implementação, Louis começou a perceber que até mesmo a IA que ele estava\najudando a desenvolver, começava a confundir seu propósito e dificultar a vida dos usuários. Essa descoberta o deixou alarmado,\npois ele viu o monstro que estava criando. Determinado a corrigir essa situação, Louis decidiu tomar medidas imediatas.\n\n";
         String mensagem3 = "Para impedir que a IA tome vida própria, você terá que ajudar Louis a desenvolver alguns desafios, com o objetivo de assumir de volta o controle que está nas mãos do CHAT maligno.\n\n";
         String mensagem4 = "Desafio 1 - ATOM";
-        String mensagem5 = "\nA batalha contra a IA maligna está apenas começando, mas com a sua ajuda e as habilidades de Louis como programador,\n com certeza iremos triunfar. Se prepare e esteja confiante de que, no final,\n a IA será domada e usada para ajudar as pessoas a compreender a programação, sem causar mais confusão e dificuldades.\n";
 
-       /*   
         fasterThreading(mensagem);
         fasterThreading(mensagem1);
         fasterThreading(mensagem2);
         fasterThreading(mensagem3);
-        */
 
         anyKeyToContinue();
         clearScreen();
         printHeading(mensagem4);
         firstChallenge();
-        
-
-        fasterThreading(mensagem5);
     }
 
     public static void stageTwo() {
-        show.println("UMA IA MALÍGNA ESTÁ TENTANDO DOMINAR O MUNDO, VOCÊ ESTÁ NO SEGUNDO ESTÁGIO");
+        show.println("UMA IA MALÍGNA ESTÁ TENTANDO DOMINAR O MUNDO, VOCÊ ESTÁ NO SEGUNDO ESTÁGIO\n");
 
-        String mensagem = "\nDesafio 2 - CELERON\n";
-        String mensagem1 = "Você está evoluindo, muito bem! ";
-        String mensagem2 = "- Louis se sente um pouco aliviado por ter você para auxiliá-lo, agora precisamos passar por mais uma etapa, só assim\n conseguiremos melhorar nossas habilidades e pegar de volta o que sempre foi nosso de direito.\n";
-        String mensagem3 = "\n- CHAT: HAHAHA, acho difícil, eu não vou deixar barato desta vez!\nO próximo desafio será mais difícil que os outros, pode ter certeza!";
+        String mensagem = "Desafio 2 - CELERON";
+        String mensagem1 = "Você está evoluindo, muito bem!\n\n";
+        String mensagem2 = "- Louis se sente um pouco aliviado por ter você para auxiliá-lo, agora precisamos passar por mais uma etapa, só assim\nconseguiremos melhorar nossas habilidades e pegar de volta o que sempre foi nosso de direito.\n\n";
 
-        /*
-         * fasterThreading(mensagem);
-         * fasterThreading(mensagem1);
-         * fasterThreading(mensagem2);
-         * fasterThreading(mensagem3);
-         */
+        printHeading(mensagem);
+        fasterThreading(mensagem1);
+        fasterThreading(mensagem2);
 
         anyKeyToContinue();
         clearScreen();
@@ -118,58 +108,48 @@ public class App {
     public static void stageTree() {
         show.println("ESTÃO CHEGANDO AO FIM! MAS AINDA NÃO ACABOU!");
 
-        String mensagem = "Desafio 3 - ITANIUM\n";
-        String mensagem1 = "- Louis: Você conseguiu, aprimorou suas habilidades e agora estamos muito\nperto de vencer essa inteligência artificial maldosa.\n";
-        String mensagem2 = "- CHAT: Droga! Achei que vocês não passariam do desafio com BOOLEAN.\nMas pode deixar, eu não vou dar mole na próxima.\n";
-        
-        /*
-         * fasterThreading(mensagem);
-         * fasterThreading(mensagem1);
-         * fasterThreading(mensagem2);
-         */
+        String mensagem = "Desafio 3 - ITANIUM";
+        String mensagem1 = "- Louis: Você conseguiu, aprimorou suas habilidades e agora estamos muito\nperto de vencer essa inteligência artificial maldosa.\n\n";
 
-         anyKeyToContinue();
-         clearScreen();
-         printHeading(mensagem);
-         thirdChallenge();
+        printHeading(mensagem);
+        fasterThreading(mensagem1);
+
+        anyKeyToContinue();
+        clearScreen();
+        printHeading(mensagem);
+        thirdChallenge();
     }
 
     public static void stageFour() {
         show.println("UM POUCO MAIS E VOCÊS CONSEGUIRÃO.. OU NÃO!");
 
-        String mensagem = "- CHAT: Vamos vê se vocês são é realmente bons, quero vê se consegue resolver um desafio com ARRAY hahaha.\n";
-        String mensagem1 = "\nDesafio 4 - QUARK SOC\n";
-        String mensagem2 = "- LOUIS: Muito Bem! Está evoluindo e garanto que está pronto para me ajudar na última fase, com certeza iremos conseguir derrotar o CHAT!\n";
+        String mensagem = "- CHAT: Vamos vê se vocês são é realmente bons, quero vê se consegue resolver um desafio com ARRAY hahaha.\n\n";
+        String mensagem1 = "Desafio 4 - QUARK SOC";
 
-        /*
-         * fasterThreading(mensagem);
-         * fasterThreading(mensagem1);
-         * fasterThreading(mensagem2);
-         */
+        printHeading(mensagem1);
+        fasterThreading(mensagem);
 
-         anyKeyToContinue();
-         clearScreen();
-         printHeading(mensagem1);
-         fourthChallenge();
+        anyKeyToContinue();
+        clearScreen();
+        printHeading(mensagem1);
+        fourthChallenge();
     }
 
     public static void stageFive() {
         show.println("AQUI COMEÇA A BATALHA FINAL");
 
-        String mensagem = "- CHAT: DÚVIDO, agora eu vou botar pra quebrar, esse último desafio não vai ter moleza!\n";
-        String mensagem1 = "\n Desafio 5 - CORE\n";
-        
-        /*
-         * fasterThreading(mensagem);
-         * fasterThreading(mensagem1);
-         */
+        String mensagem = "- CHAT: DÚVIDO, agora eu vou botar pra quebrar, esse último desafio não vai ter moleza!\n\n";
+        String mensagem1 = "Desafio 5 - CORE";
 
-         anyKeyToContinue();
-         clearScreen();
-         printHeading(mensagem1);
-         fifthChallenge();
+        printHeading(mensagem1);
+        fasterThreading(mensagem);
 
-         // stageSix are messagese that come after the fifth challenge
+        anyKeyToContinue();
+        clearScreen();
+        printHeading(mensagem1);
+        fifthChallenge();
+
+        // stageSix are messagese that come after the fifth challenge
     }
 
     static void stageSix() {
@@ -335,7 +315,8 @@ public class App {
         String code_challengeLevel = "1a";
 
         saveGame(code_playerName, code_stageLevel, code_challengeLevel);
-        reviveMenu();
+        clearScreen();
+        stageOne();
     }
 
     /**
@@ -680,18 +661,23 @@ public class App {
 
     static void firstChallenge() {
         setStage("1b");
-        fasterThreading("Vá até o arquivo [Binary.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
+        fasterThreading(
+                "Vá até o arquivo [Binary.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
         anyKeyToContinue();
 
         int result = testPlayerCode(binaryChallenge);
 
         switch (result) {
             case 0:
+                clearScreen();
                 show.println("Você não passou no teste, tente novamente.\n\n");
                 break;
             case 1:
                 updateSaveData("second-stage", "2a");
+                clearScreen();
                 show.println("Você passou no teste, parabéns!\n\n");
+                String mensagem5 = "\nA batalha contra a IA maligna está apenas começando, mas com a sua ajuda e as habilidades de Louis como programador,\n com certeza iremos triunfar. Se prepare e esteja confiante de que, no final,\n a IA será domada e usada para ajudar as pessoas a compreender a programação, sem causar mais confusão e dificuldades.\n";
+                show.println(mensagem5);
                 break;
             default:
                 break;
@@ -700,10 +686,12 @@ public class App {
 
     static void secondChallenge() {
         setStage("2b");
-        fasterThreading("Vá até o arquivo [Counter.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
+        fasterThreading(
+                "Vá até o arquivo [Counter.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
         anyKeyToContinue();
 
         int result = testPlayerCode(counterChallenge);
+        clearScreen();
 
         switch (result) {
             case 0:
@@ -711,7 +699,9 @@ public class App {
                 break;
             case 1:
                 updateSaveData("third-stage", "3a");
-                show.println("Você passou no teste, parabéns!\n\n");
+                show.println("Você passou no teste, parabéns!\n");
+                String mensagem3 = "- CHAT: HAHAHA, acho difícil, eu não vou deixar barato desta vez!\nO próximo desafio será mais difícil que os outros, pode ter certeza!";
+                show.print(mensagem3);
                 break;
             default:
                 break;
@@ -720,18 +710,21 @@ public class App {
 
     static void thirdChallenge() {
         setStage("3b");
-        fasterThreading("Vá até o arquivo [Alarm.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
+        fasterThreading(
+                "Vá até o arquivo [Alarm.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
         anyKeyToContinue();
 
         int result = testPlayerCode(alarmChallenge);
 
-        switch(result) {
+        switch (result) {
             case 1:
                 show.println("Você não passou no teste, tente novamente.\n\n");
                 break;
             case 0:
                 updateSaveData("fourth-stage", "4a");
-                show.println("Você passou no teste, parabéns!\n\n");
+                show.println("Você passou no teste, parabéns!\n");
+                String mensagem2 = "- CHAT: Droga! Achei que vocês não passariam do desafio com BOOLEAN.\nMas pode deixar, eu não vou dar mole na próxima.\n";
+                show.print(mensagem2);
                 break;
             default:
                 break;
@@ -740,33 +733,37 @@ public class App {
 
     static void fourthChallenge() {
         setStage("4b");
-        fasterThreading("Vá até o arquivo [Positive.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
+        fasterThreading(
+                "Vá até o arquivo [Positive.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
         anyKeyToContinue();
 
         int result = testPlayerCode(positiveChallenge);
 
-        switch(result) {
+        switch (result) {
             case 1:
                 show.println("Você não passou no teste, tente novamente.\n\n");
                 break;
             case 0:
                 updateSaveData("fifth-stage", "5a");
                 show.println("Você passou no teste, parabéns!\n\n");
+                String mensagem2 = "- LOUIS: Muito Bem! Está evoluindo e garanto que está pronto para me ajudar na última fase, com certeza iremos conseguir derrotar o CHAT!\n\n";
+                show.print(mensagem2);
                 break;
             default:
                 break;
         }
-        
+
     }
 
     static void fifthChallenge() {
         setStage("5b");
-        fasterThreading("Vá até o arquivo [Reverse.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
+        fasterThreading(
+                "Vá até o arquivo [Reverse.java] e siga as instruções para concluir o desafio e caso falhe,\nutilize a opção [2] do menu para tentar novamente.\n\n");
         anyKeyToContinue();
 
         int result = testPlayerCode(reverseChallenge);
 
-        switch(result) {
+        switch (result) {
             case 1:
                 show.println("Você não passou no teste, tente novamente.\n\n");
                 break;
