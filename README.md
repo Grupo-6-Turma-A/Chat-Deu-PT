@@ -1,3 +1,0 @@
-# Chat-Deu-PT
-
-Oi
